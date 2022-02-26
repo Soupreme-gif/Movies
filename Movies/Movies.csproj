@@ -10,6 +10,16 @@
         </EmbeddedResource>
     </ItemGroup>
 
+    <ItemGroup>
+        <None Remove="movies2.csv" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Include="movies2.csv">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </EmbeddedResource>
+    </ItemGroup>
+
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
