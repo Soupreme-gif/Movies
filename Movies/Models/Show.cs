@@ -19,6 +19,29 @@ public class Show : Media
 
     public override string Display()
     {
-        throw new NotImplementedException();
+        var file = "shows.csv";
+
+        StreamReader reader = new StreamReader(file);
+        var line = reader.ReadLine();
+
+        while (!reader.EndOfStream)
+        {
+
+            line = reader.ReadLine();
+            var row = line.Split(",");
+
+            Id = Int32.Parse(row[0]);
+            Title = row[1];
+            Episode = Int32.Parse(row[2]);
+            Season = Int32.Parse(row[3]);
+            Writers = row[4];
+
+            Console.WriteLine($"{Id},{Title},{Episode},{Season},{Writers}");
+
+        }
+        
+        reader.Close();
+
+        return "";
     }
 }
