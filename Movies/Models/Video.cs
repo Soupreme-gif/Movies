@@ -19,9 +19,30 @@ public class Video : Media
 
     public override string Display()
     {
-        throw new NotImplementedException();
+        var file = "video.csv";
 
+        StreamReader reader = new StreamReader(file);
+        var line = reader.ReadLine();
+
+        while (!reader.EndOfStream)
+        {
+
+            line = reader.ReadLine();
+            var row = line.Split(",");
+
+            Id = Int32.Parse(row[0]);
+            Title = row[1];
+            format = row[2];
+            length = Int32.Parse(row[3]);
+            regions = Int32.Parse(row[4]);
+            
+
+            Console.WriteLine($"{Id},{Title},{format},{length},{regions}");
+
+        }
         
+        reader.Close();
 
+        return "";
     }
 }

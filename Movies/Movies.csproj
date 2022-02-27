@@ -30,6 +30,18 @@
         </EmbeddedResource>
     </ItemGroup>
 
+    <ItemGroup>
+        <None Remove="video.csv" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Include="video.csv">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </EmbeddedResource>
+    </ItemGroup>
+
+    
+
     <PropertyGroup>
         <OutputType>Exe</OutputType>
         <TargetFramework>net6.0</TargetFramework>
