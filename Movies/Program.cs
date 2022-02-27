@@ -1,5 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using System.Net.Http.Headers;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Movies.Models;
 
 
 namespace Movies;
@@ -9,6 +11,7 @@ public class Program
 
     static void Main(string[] args)
     {
+        
         
         // sets up all of the logging for the file management
         IServiceCollection serviceCollection = new ServiceCollection();
@@ -20,6 +23,15 @@ public class Program
 
         var fileAccessor = serviceProvider.GetService<IfileManager>();
         string file = "movies.csv";
+        
+        Console.WriteLine("Would you like the Abstract classes version of the Movies project?");
+        var answer = Console.ReadLine();
+
+        if (answer.ToLower() == "yes")
+        {
+            fileAccessor.displayMediaType();
+        }
+        
 
         for (int i = 0; i < Int32.MaxValue; i++)
         {
@@ -74,6 +86,8 @@ public interface IfileManager
     string GetMovieTitle();
 
     string CreateGenreList();
+
+    void displayMediaType();
 }
 
 public class fileHandler : IfileManager
@@ -262,6 +276,49 @@ public class fileHandler : IfileManager
             var listOfGenres = string.Join("|", genreList.ToArray());
 
             return listOfGenres;
+
+        }
+
+        public void displayMediaType()
+        {
+
+            Console.WriteLine("What type of media would you like to display? Movies, Shows, or Videos");
+            var selection = Console.ReadLine();
+
+            if (selection.ToLower() == "movies")
+            {
+                var id = 0;
+                var title = "";
+                var genres = "";
+
+                 Media media = new Movie(id, title, genres);
+                 media.Display();
+            }
+            else if (selection.ToLower() == "shows")
+            {
+                var id = 0;
+                var title = "";
+                var episode = 0;
+                var season = 0;
+                var writers = ""; 
+                
+               Media media = new Show(id, title, episode, season, writers);
+               media.Display();
+            }
+            else if (selection.ToLower() == "videos")
+            {
+                var id = 0;
+                var title = "";
+                var format = "";
+                var length = 0;
+                var regions = 0;
+                
+               Media media = new Video(id, title, format, length, regions);
+               media.Display();
+            }
+
+            
+
 
         }
 

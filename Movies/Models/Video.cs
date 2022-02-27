@@ -8,7 +8,7 @@ public class Video : Media
     public int length { get; set; }
     public int regions { get; set; }
 
-    public Video()
+    public Video(int Id, string Title, string format, int length, int regions)
     {
         this.Id = Id;
         this.Title = Title;

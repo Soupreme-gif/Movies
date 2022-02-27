@@ -8,6 +8,15 @@
         <EmbeddedResource Include="movies.csv">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </EmbeddedResource>
+        <EmbeddedResource Include="movies2.csv">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </EmbeddedResource>
+        <EmbeddedResource Include="shows.csv">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </EmbeddedResource>
+        <EmbeddedResource Include="video.csv">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </EmbeddedResource>
     </ItemGroup>
 
     <ItemGroup>
@@ -15,29 +24,11 @@
     </ItemGroup>
 
     <ItemGroup>
-        <EmbeddedResource Include="movies2.csv">
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </EmbeddedResource>
-    </ItemGroup>
-
-    <ItemGroup>
         <None Remove="shows.csv" />
     </ItemGroup>
 
     <ItemGroup>
-        <EmbeddedResource Include="shows.csv">
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </EmbeddedResource>
-    </ItemGroup>
-
-    <ItemGroup>
         <None Remove="video.csv" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <EmbeddedResource Include="video.csv">
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </EmbeddedResource>
     </ItemGroup>
 
     
