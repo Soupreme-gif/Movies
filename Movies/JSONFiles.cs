@@ -2,36 +2,39 @@
 
 namespace Movies;
 
-public class JSONFiles
+internal class JSONFiles
 {
     
     public string movieID { get; set; }
     public string title { get; set; }
     public string[] genres { get; set; }
     
-}
+    public void Read(string json)
+    {
+        JSONFiles movieFile = JsonConvert.DeserializeObject<JSONFiles>(json); 
 
-public static string Write()
-{
-    JSONFiles movieFile = new JSONFiles();
+        Console.WriteLine(movieFile.movieID);
+        Console.WriteLine(movieFile.title);
+        Console.WriteLine(movieFile.genres);
+
+    }
+    
+    public string Write()
+    {
+        JSONFiles movieFile = new JSONFiles();
         movieFile.movieID = "1";
         movieFile.title = "Encanto";
-    product.Sizes = new string[] {"Small"};
+        movieFile.genres = new[] {"Fantasy"};
 
-    // Install-Package Newtonsoft.Json
-    string json = JsonConvert.SerializeObject(product);
+        // Install-Package Newtonsoft.Json
+        string json = JsonConvert.SerializeObject(movieFile);
 
-    Console.WriteLine(json);
+        Console.WriteLine(json);
 
-    return json;
+        return json;
+    }
+    
 }
 
-public static void Read(string json)
-{
-    Product p = JsonConvert.DeserializeObject<Product>(json); 
 
-    Console.WriteLine(p.Name);
-    Console.WriteLine(p.Expiry);
-    Console.WriteLine(p.Sizes);
 
-}
