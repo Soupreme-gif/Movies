@@ -33,6 +33,14 @@ internal class JSONFiles
 
         return json;
     }
+
+    public void writeAndRead()
+    {
+
+        var json = Write();
+        Read(json);
+
+    }
     
 }
 

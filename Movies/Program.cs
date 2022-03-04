@@ -32,6 +32,14 @@ public class Program
             fileAccessor.displayMediaType();
         }
         
+        Console.WriteLine("Would you like the JSON file version of the Movies project?");
+        var theAnswer = Console.ReadLine();
+        
+        if (theAnswer.ToLower() == "yes")
+        {
+            JSONFiles movieFile = new JSONFiles();
+            movieFile.writeAndRead();
+        }
 
         for (int i = 0; i < Int32.MaxValue; i++)
         {
