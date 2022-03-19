@@ -87,15 +87,9 @@ public interface IfileManager
 
     void Write(string file);
 
-    string CreateMovieId(string file);
-
-    bool IsUnique(string title, string file);
-
-    string GetMovieTitle();
-
-    string CreateGenreList();
-
     void displayMediaType();
+
+    string CreateMovieId(string file);
 }
 
 public class fileHandler : IfileManager
@@ -177,7 +171,7 @@ public class fileHandler : IfileManager
 
     }
 
-    public string GetMovieTitle()
+    private string GetMovieTitle()
     {
         
         var title = "";
@@ -220,7 +214,7 @@ public class fileHandler : IfileManager
         }
     
 
-    public bool IsUnique(string file, string title)
+    private bool IsUnique(string file, string title)
         {
 
             var movieTitle = title;
@@ -255,7 +249,7 @@ public class fileHandler : IfileManager
         }
 
 
-        public string CreateGenreList()
+        private string CreateGenreList()
         {
 
             List<string> genreList = new List<string>();
